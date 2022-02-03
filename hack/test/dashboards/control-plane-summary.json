@@ -7,6 +7,8 @@
   "displayQueryParameters": true,
   "sections": [
     {
+      "name": "Control Plane Summary",
+      "id": "z2Fog",
       "rows": [
         {
           "charts": [
@@ -69,8 +71,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 0,
-                  "h": 4,
-                  "w": 12
+                  "w": 12,
+                  "h": 4
                 }
               },
               "sources": [
@@ -162,8 +164,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 4,
-                  "h": 4,
-                  "w": 4
+                  "w": 4,
+                  "h": 4
                 },
                 "y0ScaleDecimal": false
               },
@@ -246,8 +248,8 @@
                 "dashboardLayout": {
                   "x": 4,
                   "y": 4,
-                  "h": 4,
-                  "w": 4
+                  "w": 4,
+                  "h": 4
                 },
                 "y0ScaleDecimal": false
               },
@@ -325,8 +327,8 @@
                 "dashboardLayout": {
                   "x": 8,
                   "y": 4,
-                  "h": 4,
-                  "w": 4
+                  "w": 4,
+                  "h": 4
                 },
                 "y0ScaleDecimal": false
               },
@@ -351,11 +353,11 @@
           ],
           "heightFactor": 80
         }
-      ],
-      "id": "z2Fog",
-      "name": "Control Plane Summary"
+      ]
     },
     {
+      "name": "API Server Details",
+      "id": "untitled-dashboard-section-1",
       "rows": [
         {
           "charts": [
@@ -405,18 +407,18 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 0,
-                  "h": 7,
-                  "w": 4
+                  "w": 4,
+                  "h": 7
                 }
               },
               "sources": [
                 {
-                  "queryType": "WQL",
-                  "query": "sum(rate(ts(kube.apiserver.apiserver.request.total.counter, cluster=${cluster_name})), verb)",
                   "name": "request_rate",
-                  "querybuilderEnabled": false,
+                  "query": "sum(rate(ts(kube.apiserver.apiserver.request.total.counter, cluster=${cluster_name})), verb)",
+                  "disabled": false,
                   "secondaryAxis": false,
-                  "disabled": false
+                  "queryType": "WQL",
+                  "querybuilderEnabled": false
                 }
               ],
               "noDefaultEvents": false,
@@ -471,8 +473,8 @@
                 "dashboardLayout": {
                   "x": 4,
                   "y": 0,
-                  "h": 7,
-                  "w": 4
+                  "w": 4,
+                  "h": 7
                 }
               },
               "sources": [
@@ -550,8 +552,8 @@
                 "dashboardLayout": {
                   "x": 8,
                   "y": 0,
-                  "h": 7,
-                  "w": 4
+                  "w": 4,
+                  "h": 7
                 }
               },
               "sources": [
@@ -645,8 +647,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 7,
-                  "h": 7,
-                  "w": 6
+                  "w": 6,
+                  "h": 7
                 }
               },
               "sources": [
@@ -708,8 +710,8 @@
                 "dashboardLayout": {
                   "x": 6,
                   "y": 7,
-                  "h": 7,
-                  "w": 6
+                  "w": 6,
+                  "h": 7
                 }
               },
               "sources": [
@@ -756,11 +758,11 @@
           ],
           "heightFactor": 140
         }
-      ],
-      "id": "untitled-dashboard-section-1",
-      "name": "API Server Details"
+      ]
     },
     {
+      "name": "etcd",
+      "id": "untitled-dashboard-section-3",
       "rows": [
         {
           "charts": [
@@ -815,8 +817,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 0,
-                  "h": 5,
-                  "w": 4
+                  "w": 4,
+                  "h": 5
                 }
               },
               "sources": [
@@ -874,16 +876,24 @@
                 "y0ScaleSIBy1024": false,
                 "fixedLegendFilterLimit": 5,
                 "fixedLegendShowSourceName": true,
+                "showValueColumn": true,
                 "fixedLegendPosition": "RIGHT",
-                "customTags": [],
+                "customTags": [
+                  "resource"
+                ],
+                "showRawValues": false,
                 "lineType": "linear",
+                "showHosts": false,
+                "groupBySource": false,
                 "windowing": "full",
                 "fixedLegendFilterSort": "TOP",
                 "y1Units": "",
+                "sortValuesDescending": true,
                 "fixedLegendShowMetricName": false,
-                "type": "line",
+                "type": "table",
                 "y1UnitAutoscaling": false,
-                "tagMode": "all",
+                "showLabels": false,
+                "tagMode": "custom",
                 "fixedLegendUseRawStats": false,
                 "y0UnitAutoscaling": true,
                 "fixedLegendDisplayStats": [
@@ -901,6 +911,7 @@
               "filterOutNonAnomalies": false,
               "name": "etcd Object Counts",
               "anomalySampleSize": "8",
+              "units": "",
               "summarization": "MEAN",
               "base": 0,
               "chartAttributes": {
@@ -908,8 +919,8 @@
                 "dashboardLayout": {
                   "x": 4,
                   "y": 0,
-                  "h": 5,
-                  "w": 4
+                  "w": 4,
+                  "h": 5
                 }
               },
               "sources": [
@@ -919,7 +930,8 @@
                   "disabled": true,
                   "secondaryAxis": false,
                   "queryType": "WQL",
-                  "querybuilderEnabled": false
+                  "querybuilderEnabled": false,
+                  "sourceDescription": ""
                 },
                 {
                   "name": "A Clone",
@@ -927,7 +939,8 @@
                   "disabled": false,
                   "secondaryAxis": false,
                   "queryType": "WQL",
-                  "querybuilderEnabled": false
+                  "querybuilderEnabled": false,
+                  "sourceDescription": ""
                 }
               ],
               "noDefaultEvents": false,
@@ -978,8 +991,8 @@
                 "dashboardLayout": {
                   "x": 8,
                   "y": 0,
-                  "h": 5,
-                  "w": 4
+                  "w": 4,
+                  "h": 5
                 }
               },
               "sources": [
@@ -998,11 +1011,11 @@
           ],
           "heightFactor": 100
         }
-      ],
-      "id": "untitled-dashboard-section-3",
-      "name": "etcd"
+      ]
     },
     {
+      "name": "coreDNS",
+      "id": "lsaPH",
       "rows": [
         {
           "charts": [
@@ -1053,8 +1066,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 0,
-                  "h": 5,
-                  "w": 6
+                  "w": 6,
+                  "h": 5
                 }
               },
               "sources": [
@@ -1116,8 +1129,8 @@
                 "dashboardLayout": {
                   "x": 6,
                   "y": 0,
-                  "h": 5,
-                  "w": 6
+                  "w": 6,
+                  "h": 5
                 }
               },
               "sources": [
