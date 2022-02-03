@@ -7,8 +7,6 @@
   "displayQueryParameters": true,
   "sections": [
     {
-      "name": "Control Plane Summary",
-      "id": "z2Fog",
       "rows": [
         {
           "charts": [
@@ -71,8 +69,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 0,
-                  "w": 12,
-                  "h": 4
+                  "h": 4,
+                  "w": 12
                 }
               },
               "sources": [
@@ -164,8 +162,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 4,
-                  "w": 4,
-                  "h": 4
+                  "h": 4,
+                  "w": 4
                 },
                 "y0ScaleDecimal": false
               },
@@ -248,8 +246,8 @@
                 "dashboardLayout": {
                   "x": 4,
                   "y": 4,
-                  "w": 4,
-                  "h": 4
+                  "h": 4,
+                  "w": 4
                 },
                 "y0ScaleDecimal": false
               },
@@ -327,8 +325,8 @@
                 "dashboardLayout": {
                   "x": 8,
                   "y": 4,
-                  "w": 4,
-                  "h": 4
+                  "h": 4,
+                  "w": 4
                 },
                 "y0ScaleDecimal": false
               },
@@ -353,11 +351,11 @@
           ],
           "heightFactor": 80
         }
-      ]
+      ],
+      "id": "z2Fog",
+      "name": "Control Plane Summary"
     },
     {
-      "name": "API Server Details",
-      "id": "untitled-dashboard-section-1",
       "rows": [
         {
           "charts": [
@@ -379,7 +377,7 @@
                 "fixedLegendFilterSort": "TOP",
                 "y1Units": "",
                 "fixedLegendShowMetricName": false,
-                "type": "line",
+                "type": "stacked-column",
                 "y1UnitAutoscaling": false,
                 "tagMode": "all",
                 "fixedLegendUseRawStats": false,
@@ -407,18 +405,18 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 0,
-                  "w": 4,
-                  "h": 7
+                  "h": 7,
+                  "w": 4
                 }
               },
               "sources": [
                 {
-                  "name": "request_rate",
-                  "query": "sum(rate(ts(kube.apiserver.apiserver.request.total.counter, cluster=${cluster_name})), verb)",
-                  "disabled": false,
-                  "secondaryAxis": false,
                   "queryType": "WQL",
-                  "querybuilderEnabled": false
+                  "query": "sum(rate(ts(kube.apiserver.apiserver.request.total.counter, cluster=${cluster_name})), verb)",
+                  "name": "request_rate",
+                  "querybuilderEnabled": false,
+                  "secondaryAxis": false,
+                  "disabled": false
                 }
               ],
               "noDefaultEvents": false,
@@ -473,8 +471,8 @@
                 "dashboardLayout": {
                   "x": 4,
                   "y": 0,
-                  "w": 4,
-                  "h": 7
+                  "h": 7,
+                  "w": 4
                 }
               },
               "sources": [
@@ -552,8 +550,8 @@
                 "dashboardLayout": {
                   "x": 8,
                   "y": 0,
-                  "w": 4,
-                  "h": 7
+                  "h": 7,
+                  "w": 4
                 }
               },
               "sources": [
@@ -647,8 +645,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 7,
-                  "w": 6,
-                  "h": 7
+                  "h": 7,
+                  "w": 6
                 }
               },
               "sources": [
@@ -710,8 +708,8 @@
                 "dashboardLayout": {
                   "x": 6,
                   "y": 7,
-                  "w": 6,
-                  "h": 7
+                  "h": 7,
+                  "w": 6
                 }
               },
               "sources": [
@@ -758,11 +756,11 @@
           ],
           "heightFactor": 140
         }
-      ]
+      ],
+      "id": "untitled-dashboard-section-1",
+      "name": "API Server Details"
     },
     {
-      "name": "etcd",
-      "id": "untitled-dashboard-section-3",
       "rows": [
         {
           "charts": [
@@ -817,8 +815,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 0,
-                  "w": 4,
-                  "h": 5
+                  "h": 5,
+                  "w": 4
                 }
               },
               "sources": [
@@ -910,8 +908,8 @@
                 "dashboardLayout": {
                   "x": 4,
                   "y": 0,
-                  "w": 4,
-                  "h": 5
+                  "h": 5,
+                  "w": 4
                 }
               },
               "sources": [
@@ -980,8 +978,8 @@
                 "dashboardLayout": {
                   "x": 8,
                   "y": 0,
-                  "w": 4,
-                  "h": 5
+                  "h": 5,
+                  "w": 4
                 }
               },
               "sources": [
@@ -1000,11 +998,11 @@
           ],
           "heightFactor": 100
         }
-      ]
+      ],
+      "id": "untitled-dashboard-section-3",
+      "name": "etcd"
     },
     {
-      "name": "coreDNS",
-      "id": "lsaPH",
       "rows": [
         {
           "charts": [
@@ -1055,8 +1053,8 @@
                 "dashboardLayout": {
                   "x": 0,
                   "y": 0,
-                  "w": 6,
-                  "h": 5
+                  "h": 5,
+                  "w": 6
                 }
               },
               "sources": [
@@ -1118,8 +1116,8 @@
                 "dashboardLayout": {
                   "x": 6,
                   "y": 0,
-                  "w": 6,
-                  "h": 5
+                  "h": 5,
+                  "w": 6
                 }
               },
               "sources": [
@@ -1166,7 +1164,9 @@
           ],
           "heightFactor": 100
         }
-      ]
+      ],
+      "id": "lsaPH",
+      "name": "coreDNS"
     }
   ],
   "parameterDetails": {
