@@ -45,7 +45,7 @@
                 "type": "table",
                 "y1UnitAutoscaling": false,
                 "showLabels": false,
-                "tagMode": "all",
+                "tagMode": "custom",
                 "fixedLegendUseRawStats": false,
                 "y0UnitAutoscaling": true,
                 "fixedLegendDisplayStats": [
