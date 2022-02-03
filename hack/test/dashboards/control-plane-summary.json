@@ -1083,11 +1083,11 @@
       "order": 1,
       "defaultValue": "Label",
       "hideFromView": false,
-      "value": "*",
+      "value": "",
       "label": "cluster",
       "dynamicFieldType": "TAG_KEY",
       "valuesToReadableStrings": {
-        "Label": "*"
+        "Label": ""
       },
       "allowAll": false,
       "selectedLabel": "Label"
