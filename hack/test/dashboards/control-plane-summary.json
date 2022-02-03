@@ -26,13 +26,11 @@
                 "fixedLegendPosition": "RIGHT",
                 "customTags": [
                   "cluster",
-                  "kubelet_version",
+                  "nodename",
+                  "ready",
                   "internal_ip",
                   "provider_id",
-                  "os_image",
-                  "node_role",
-                  "nodename",
-                  "ready"
+                  "os_image"
                 ],
                 "showRawValues": false,
                 "lineType": "linear",
