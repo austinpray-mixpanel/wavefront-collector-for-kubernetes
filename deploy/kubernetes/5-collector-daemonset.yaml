@@ -42,6 +42,11 @@ spec:
         - mountPath: /etc/collector/
           name: collector-config
           readOnly: true
+        # TODO: don't want to volume mount; we want the collector to read the cert file
+        # maybe mount generic secret and let user fill in with certs. Empty certs by default
+        - mountPath: /etc/etcd-certs/
+          name: etcd-certs
+          readOnly: true
         env:
         - name: HOST_PROC
           value: /host/proc
@@ -67,3 +72,7 @@ spec:
       - name: collector-config
         configMap:
           name: collector-config
+      - name: etcd-certs
+        secret:
+          secretName: etcd-certs
+

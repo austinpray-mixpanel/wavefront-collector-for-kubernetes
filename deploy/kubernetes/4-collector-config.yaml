@@ -80,7 +80,6 @@ data:
       #    - "kubernetes.cadvisor.container.cpu.cfs.throttled.periods.total.counter"
 
 
-      # prometheus_sources:
 
       ##########################################################################
       # Static source to collect control plane metrics from the API Server
@@ -98,6 +97,18 @@ data:
       #     - 'kube.apiserver.apiserver.*'
       #     - 'kube.apiserver.etcd.*'
       #     - 'kube.apiserver.process.*'
+
+      prometheus_sources:
+      - url: 'https://etcd-metrics-endpoint.wavefront-collector.svc.cluster.local:2379/metrics'
+        httpConfig:
+          tls_config:
+            ca_file: '/etc/etcd-certs/tls.crt'
+            insecure_skip_verify: true
+        prefix: 'kube.etcd.'
+
+        filters:
+          metricAllowList:
+          - 'kube.etcd.*'
 
     # discovery rules for auto-discovery of pods and services
     discovery:

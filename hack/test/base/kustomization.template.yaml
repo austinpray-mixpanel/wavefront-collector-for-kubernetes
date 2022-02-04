@@ -3,6 +3,7 @@ bases:
 
 resources:
 - proxy.yaml
+- etcd-certs.yaml
 
 images:
 - name: projects.registry.vmware.com/tanzu_observability/kubernetes-collector

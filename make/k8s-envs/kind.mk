@@ -7,6 +7,10 @@ nuke-kind-ha:
 	kind delete cluster
 	kind create cluster --config "make/k8s-envs/kind-ha.yml"
 
+nuke-kind-cp-fwd:
+	kind delete cluster
+	kind create cluster --config "make/k8s-envs/kind-cp-fwd.yml"
+
 kind-connect-to-cluster:
 	kubectl config use kind-kind
 
