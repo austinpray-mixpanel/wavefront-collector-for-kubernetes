@@ -21,6 +21,27 @@ discovery:
   - labels:
       please-exclude-from-discovery: ['true']
 
+  plugins:
+  # etcd
+  - name: etcd-discovery
+    type: prometheus
+    selectors:
+      images:
+      - '*etcd*'
+      labels:
+        component:
+        - etcd
+    port: 2379
+    path: /metrics
+    scheme: https
+    prefix: 'etcd.discovery.'
+    conf: |
+      tls_config:
+        ca_file: '/etc/etcd-certs/ca.crt'
+        cert_file: '/etc/etcd-certs/tls.crt'
+        key_file: '/etc/etcd-certs/tls.key'
+        insecure_skip_verify: true
+
 sources:
   kubernetes_source:
     url: 'https://kubernetes.default.svc'
@@ -48,17 +69,6 @@ sources:
         - "kubernetes.cadvisor.container.cpu.cfs.throttled.periods.total.counter"
 
   prometheus_sources:
-    - url: 'https://etcd-metrics-endpoint.kube-system.svc.cluster.local:2379/metrics'
-      httpConfig:
-        tls_config:
-          cert_file: '/etc/etcd-certs/tls.crt'
-          key_file: '/etc/etcd-certs/tls.key'
-          insecure_skip_verify: true
-      prefix: 'kube.etcd.'
-
-      filters:
-        metricAllowList:
-          - 'kube.etcd.*'
     ##########################################################################
     # Static source to collect control plane metrics from the API Server
     ##########################################################################

@@ -1,7 +1,6 @@
 ---
 resources:
 - 0-collector-namespace.yaml
-- 0-etcd-svc.yaml
 - 1-collector-cluster-role.yaml
 - 2-collector-rbac.yaml
 - 3-collector-service-account.yaml
