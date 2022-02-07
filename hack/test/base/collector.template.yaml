@@ -51,7 +51,8 @@ sources:
     - url: 'https://etcd-metrics-endpoint.kube-system.svc.cluster.local:2379/metrics'
       httpConfig:
         tls_config:
-          ca_file: '/etc/etcd-certs/tls.crt'
+          cert_file: '/etc/etcd-certs/tls.crt'
+          key_file: '/etc/etcd-certs/tls.key'
           insecure_skip_verify: true
       prefix: 'kube.etcd.'
 
